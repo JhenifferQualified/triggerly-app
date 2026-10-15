@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triggerly — LinkedIn AI Sales Hooks & Buying Signals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #020617;
+      overflow-x: hidden;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* 1. Animação sofisticada de mudança de cor no texto principal */
+    @keyframes textShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-gradient-text {
+      background: linear-gradient(
+        270deg,
+        #38bdf8,
+        #34d399,
+        #818cf8,
+        #2dd4bf,
+        #60a5fa,
+        #38bdf8
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 6s ease infinite;
+      filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.25));
+    }
+
+    /* 2. Luzes animadas circulando a borda inteira dos cards de preço */
+    @keyframes rotateBorder {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .glowing-card-wrapper {
+      position: relative;
+      border-radius: 1.25rem;
+      padding: 2px;
+      overflow: hidden;
+      background: rgba(30, 41, 59, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glowing-card-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.2);
+    }
+
+    .glowing-card-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 65%,
+        #0ea5e9 80%,
+        #10b981 95%,
+        #38bdf8 100%
+      );
+      animation: rotateBorder 4s linear infinite;
+      z-index: 0;
+    }
+
+    /* Segundo card com rotação em fase diferente e brilho mais intenso */
+    .glowing-card-pro::before {
+      background: conic-gradient(
+        from 180deg,
+        transparent 0%,
+        transparent 55%,
+        #3b82f6 75%,
+        #10b981 90%,
+        #a855f7 100%
+      );
+      animation: rotateBorder 3s linear infinite;
+    }
+
+    .glowing-card-inner {
+      position: relative;
+      z-index: 1;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(16px);
+      border-radius: calc(1.25rem - 2px);
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between relative selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- 3. Fundo de Algoritmos / Hacker Stream em Canvas -->
+  <canvas id="algoCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-35"></canvas>
+  
+  <!-- Vinheta radial para dar profundidade tecnológica -->
+  <div class="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_center,transparent_10%,#020617_90%)]"></div>
+
+  <!-- Barra de Navegação Superior -->
+  <header class="relative z-10 border-b border-slate-800/60 bg-slate-950/60 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_12px_#10b981] animate-pulse"></div>
+        <span class="font-bold tracking-wider text-white text-sm uppercase font-mono">Triggerly<span class="text-emerald-400">.ai</span></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-xs font-mono text-slate-400 hidden sm:inline">STATUS: <span class="text-emerald-400">ONLINE // V1.0</span></span>
+        <a href="#pricing" class="text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-200 px-3.5 py-1.5 rounded-lg border border-slate-700 transition">
+          Get Access
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="relative z-10 max-w-5xl mx-auto px-6 py-16 text-center flex-1 flex flex-col justify-center items-center">
+    
+    <!-- Badge Tecnológico -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-8 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span>DOM SIGNAL ENGINE // CHROME MANIFEST V3</span>
+    </div>
+
+    <!-- Headline Principal com Mudança de Cor Sofisticada -->
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+      Turn LinkedIn Activity into <br />
+      <span class="animated-gradient-text">Pipeline in 3 Seconds</span>
+    </h1>
+
+    <p class="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+      Triggerly scans prospect profiles in real time, extracts domain keywords, detects buying triggers, and synthesizes high-converting outbound hooks in one click.
+    </p>
+
+    <!-- Simulador Interativo (Torna a página clicável e viva) -->
+    <div class="w-full max-w-2xl bg-slate-900/80 border border-slate-800 rounded-xl p-4 mb-16 text-left backdrop-blur-md shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+          <span class="text-xs font-mono text-slate-400 ml-2">live_signal_extractor.ts</span>
+        </div>
+        <button onclick="runSimulation()" id="simBtn" class="text-xs font-mono bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-3 py-1 rounded transition flex items-center gap-1.5 shadow-lg shadow-blue-600/30 cursor-pointer">
+          ⚡ Testar Extração ao Vivo
+        </button>
+      </div>
+      <div id="simOutput" class="font-mono text-xs text-slate-300 space-y-1.5 min-h-[90px] flex flex-col justify-center">
+        <p class="text-slate-500">// Clique em "Testar Extração ao Vivo" acima para simular a leitura de um executivo no LinkedIn...</p>
+      </div>
+    </div>
+
+    <!-- Seção de Preços com Luzes Circulando a Borda -->
+    <div id="pricing" class="grid md:grid-cols-2 gap-8 w-full max-w-3xl text-left">
+      
+      <!-- Card 1: Monthly Plan -->
+      <div class="glowing-card-wrapper">
+        <div class="glowing-card-inner p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-lg font-bold text-white">Monthly Pro</h3>
+              <span class="text-[11px] font-mono text-sky-400 bg-sky-950/60 border border-sky-800/50 px-2 py-0.5 rounded">RECURRING</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-6">Built for active SDRs, BDRs & outbound agencies</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-white">$29</span>
+              <span class="text-sm text-slate-400 font-mono"> / month</span>
+            </div>
+            <ul class="text-xs text-slate-300 space-y-3 mb-8 font-mono">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> Unlimited buying signal scans</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> 3 formats: Connection, InMail & Cold Email</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> Automatic keyword cluster detection</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> 100% passive DOM reader (Account Safe)</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('Monthly Pro - $29/mo')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-xs uppercase tracking-wider transition cursor-pointer">
+            Select Monthly Plan
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Lifetime Deal -->
+      <div class="glowing-card-wrapper glowing-card-pro">
+        <div class="glowing-card-inner p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-lg font-bold text-white">Lifetime Access</h3>
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-700/50 px-2.5 py-0.5 rounded animate-pulse">EARLY BIRD</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-6">Pay once, use forever. Zero monthly subscriptions.</p>
+            <div class="mb-6">
+              <span class="text-4xl font-extrabold text-white">$79</span>
+              <span class="text-sm text-slate-400 font-mono"> / one-time</span>
+            </div>
+            <ul class="text-xs text-slate-300 space-y-3 mb-8 font-mono">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> 1,000 AI profile analyses per month</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> Local 7-day instant cache (0ms latency)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> Activate on up to 2 browsers</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">▸</span> All future Triggerly v1.x updates included</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('Lifetime Access - $79')" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-emerald-950/50 cursor-pointer">
+            Claim Lifetime License
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal Interativo de Checkout -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 text-left shadow-2xl">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-4">
+        <span class="font-mono text-xs text-emerald-400 uppercase" id="modalPlanTitle">Plan Selected</span>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white text-sm cursor-pointer">✕</button>
+      </div>
+      <h4 class="text-lg font-bold text-white mb-2">Instant License Delivery</h4>
+      <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+        Your Triggerly license key will be generated automatically via Lemon Squeezy right after checkout.
+      </p>
+      <input type="email" placeholder="Enter your work email..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3.5 py-2.5 text-xs text-white mb-4 focus:outline-none focus:border-blue-500" />
+      <button onclick="closeCheckoutModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-lg transition cursor-pointer">
+        Proceed to Secure Checkout →
+      </button>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="relative z-10 border-t border-slate-900/80 bg-slate-950/80 py-6 text-center text-xs text-slate-500 font-mono">
+    <p>© 2026 Triggerly Software. Independent tool — not affiliated with LinkedIn Corporation.</p>
+    <p class="mt-1">Support & Licensing: support@triggerly.ai</p>
+  </footer>
+
+  <!-- Script do Fundo de Algoritmos (Hacker Stream) e Interatividade -->
+  <script>
+    const canvas = document.getElementById("algoCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Tokens de algoritmos, binário e sinais de IA
+    const tokens = "01010101SYNACKDOMSCANLLMHOOK7F9A3C001101SIGNALTRIGGERB2B{}[]/>#$";
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(2, 6, 23, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = fontSize + "px 'JetBrains Mono', monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = tokens.charAt(Math.floor(Math.random() * tokens.length));
+        
+        // Alterna entre verde esmeralda e azul ciano tecnológico
+        ctx.fillStyle = i % 3 === 0 ? "#10b981" : "#0ea5e9";
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 45);
+
+    // Simulador interativo ao vivo
+    const samples = [
+      {
+        kw: "#CloudMigration #DevOps #SeriesB",
+        signal: "Hiring 4 Senior Backend Engineers & migrating legacy infra to AWS.",
+        hook: "Saw your post on scaling the engineering team post-Series B — usually that triggers bottlenecks in CI/CD deployment times. Open to a quick idea on how we cut build latency by 40%?"
+      },
+      {
+        kw: "#RevOps #Outbound #HubSpot",
+        signal: "VP of Sales posted about SDR ramp-up time taking over 90 days.",
+        hook: "Noticed your note on reducing SDR ramp time this quarter. Most teams lose 12 mins per lead just researching context — built a 1-click workflow that automates that inside LinkedIn."
+      }
+    ];
+    let sampleIdx = 0;
+
+    function runSimulation() {
+      const out = document.getElementById("simOutput");
+      out.innerHTML = `<p class="text-sky-400 animate-pulse">> Scanning LinkedIn DOM nodes & recent activity...</p>`;
+      setTimeout(() => {
+        const item = samples[sampleIdx % samples.length];
+        sampleIdx++;
+        out.innerHTML = `
+          <p class="text-emerald-400"><span class="text-slate-500">[KEYWORDS]:</span> ${item.kw}</p>
+          <p class="text-sky-300"><span class="text-slate-500">[SIGNAL]:</span> ${item.signal}</p>
+          <p class="text-slate-200 bg-slate-950/90 p-2 rounded border border-slate-800 mt-1"><span class="text-amber-400">[HOOK]:</span> "${item.hook}"</p>
+        `;
+      }, 600);
+    }
+
+    function openCheckoutModal(plan) {
+      document.getElementById("modalPlanTitle").innerText = plan;
+      const modal = document.getElementById("checkoutModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById("checkoutModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  </script>
+</body>
+</html>
